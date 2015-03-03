@@ -197,10 +197,11 @@ public class BoardSolver {
 	}
 	
 	/**
-	 * Sort the word list from small to large
+	 * Sort the word list on word length
+	 * @param ascending True to get an ascending list, false for descending
 	 */
-	public void sortWordList() {
-		Collections.sort(words, new PathComparator());
+	public void sortWordList(boolean ascending) {
+		Collections.sort(words, new PathComparator(ascending));
 	}
 
 	/**
@@ -210,7 +211,7 @@ public class BoardSolver {
 	public static void main(String[] args) {	
 		boolean printField = true;
 
-		BoardSolver solver = new BoardSolver(5, "Data/TWL06.txt", "POALBOPRULOPSLJEEIAWRRATI");
+		BoardSolver solver = new BoardSolver(4, "Data/TWL06.txt");
 		
 		if (printField) {
 			for (int y = 0; y < solver.size; y++) {
@@ -223,16 +224,11 @@ public class BoardSolver {
 			System.out.println();
 		}
 		
-		solver.sortWordList();
+		solver.sortWordList(true);
 		List<Path> paths = solver.getWordList();
 		
 		for (Path s : paths) {
 			System.out.println(s);
-		}
-		
-		System.out.println("\nLongest word(s):");
-		for (Path s : solver.getLongestWords()) {
-			System.out.println(s + " - " + s.size());
 		}
 		
 		System.out.println("\n" + solver.words.size() + " paths found.");

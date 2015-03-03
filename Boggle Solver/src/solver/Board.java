@@ -88,20 +88,5 @@ public class Board {
 	public Cell getCell(int x, int y) {
 		return board[x][y];
 	}
-	
-	/**
-	 * Main method
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Board board = new Board("ldsslereaencrstitereeheea", 5, "dutch");
-		
-		for (int y = 0; y < board.SIZE; y++) {
-			for (int x = 0; x < board.SIZE; x++) {
-				System.out.print(board.getBoard()[x][y].getCharacter());
-			}
-			System.out.println();
-		}
-	}
 
 }
