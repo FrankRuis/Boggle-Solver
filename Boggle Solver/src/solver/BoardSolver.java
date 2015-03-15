@@ -2,7 +2,9 @@ package solver;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import utils.PathComparator;
@@ -106,6 +108,21 @@ public class BoardSolver {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Get a map containing all paths mapped to their corresponding word string
+	 * @return The word map
+	 */
+	public Map<String, Path> getWordMap() {
+		Map<String, Path> wordMap = new HashMap<>();
+		
+		// Add each path to the map with their corresponding word as the key
+		for (Path path : words) {
+			wordMap.put(path.toString(), path);
+		}
+		
+		return wordMap;
 	}
 	
 	/**

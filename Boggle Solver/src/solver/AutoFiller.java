@@ -3,7 +3,9 @@ package solver;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.util.List;
+import java.util.Set;
+
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  * Automatically type words in a selected input field and press enter
@@ -64,12 +66,12 @@ public class AutoFiller {
     	robot.delay(delay);
     }
 
-	public static void main(String[] args) throws AWTException {
+	public static void main(String[] args) throws AWTException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		AutoFiller filler = new AutoFiller();
 
-		BoardSolver solver = new BoardSolver(5, "Data/TWL06.txt");
+		BoardSolver solver = new BoardSolver(5, "Data/sowpods.txt");
 		solver.sortWordList(false);
-		List<Path> paths = solver.getWordList();
+		Set<String> paths = solver.getWordMap().keySet();
 		
 		int minLength = 4;
 		
@@ -80,11 +82,11 @@ public class AutoFiller {
 			e1.printStackTrace();
 		}
 		
-		// Copy and paste each word and press enter
-		for (Path s : paths) {
-			if (s.size() >= minLength) {
-				filler.typeString(s.toString(), 0);
-				filler.enter(10);
+		// Type each word and press enter
+		for (String s : paths) {
+			if (s.length() >= minLength) {
+				filler.typeString(s, 0);
+				filler.enter(5);
 			}
 		}
 	}
