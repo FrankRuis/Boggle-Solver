@@ -5,8 +5,6 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.Set;
 
-import javax.swing.UnsupportedLookAndFeelException;
-
 /**
  * Automatically type words in a selected input field and press enter
  * 
@@ -66,7 +64,7 @@ public class AutoFiller {
     	robot.delay(delay);
     }
 
-	public static void main(String[] args) throws AWTException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+	public static void main(String[] args) throws AWTException {
 		AutoFiller filler = new AutoFiller();
 
 		BoardSolver solver = new BoardSolver(5, "Data/sowpods.txt");
