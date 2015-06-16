@@ -67,7 +67,7 @@ public class AutoFiller {
 	public static void main(String[] args) throws AWTException {
 		AutoFiller filler = new AutoFiller();
 
-		BoardSolver solver = new BoardSolver(5, "Data/sowpods.txt");
+		BoardSolver solver = new BoardSolver(5, "Boggle Solver/Data/sowpods.txt");
 		solver.sortWordList(false);
 		Set<String> paths = solver.getWordMap().keySet();
 		
@@ -81,12 +81,11 @@ public class AutoFiller {
 		}
 		
 		// Type each word and press enter
-		for (String s : paths) {
-			if (s.length() >= minLength) {
-				filler.typeString(s, 0);
-				filler.enter(5);
-			}
-		}
+		for (String s : paths)
+            if (s.length() >= minLength) {
+                filler.typeString(s, 0);
+                filler.enter(5);
+            }
 	}
 	
 }

@@ -11,7 +11,7 @@ public enum CharVal {
 	
 	private int val;
 	
-	private CharVal(int val) {
+	CharVal(int val) {
 		this.val = val;
 	}
 

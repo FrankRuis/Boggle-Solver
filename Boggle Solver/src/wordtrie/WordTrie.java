@@ -42,8 +42,6 @@ public class WordTrie {
 			
 			// Close the buffered reader
 			reader.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -59,7 +57,7 @@ public class WordTrie {
 	
 	/**
 	 * Add the word to the trie
-	 * @param word the word to add
+	 * @param w the word to add
 	 */
 	public void add(String w) {
 		// Make the word lower case and trim whitespace
@@ -81,7 +79,7 @@ public class WordTrie {
 	
 	/**
 	 * Get the end node of the given word
-	 * @param word the word ending to get
+	 * @param w the word ending to get
 	 * @return the node that marks the end of the given word
 	 */
 	public Node getWord(String w) {
@@ -109,7 +107,7 @@ public class WordTrie {
 	
 	/**
 	 * Check if the given word is a word in this trie
-	 * @param word the word to check
+	 * @param w the word to check
 	 * @return true if the word is valid, else false
 	 */
 	public boolean isWord(String w) {
@@ -131,8 +129,8 @@ public class WordTrie {
 			}
 		}
 		
-		// Return true if the node exists and marks the end of a word, else return false
-		return (curNode != null && curNode.isEndWord()) ? true : false;
+		// Return true if the node marks the end of a word, else return false
+		return curNode.isEndWord();
 	}
 	
 	/**

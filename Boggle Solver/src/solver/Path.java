@@ -24,7 +24,7 @@ public class Path {
 	
 	/**
 	 * Constructor
-	 * @param c the first cell of the path
+	 * @param cell the first cell of the path
 	 */
 	public Path(Cell cell) {
 		// Use a linked list to keep insertion order

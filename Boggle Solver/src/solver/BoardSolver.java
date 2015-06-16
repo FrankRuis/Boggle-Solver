@@ -1,11 +1,6 @@
 package solver;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import utils.PathComparator;
 import wordtrie.WordTrie;
@@ -127,7 +122,7 @@ public class BoardSolver {
 	
 	/**
 	 * Recursively go through all unvisited neighbours to check if a word can be formed
-	 * @param p the path to start from
+	 * @param path the path to start from
 	 */
 	public void followPath(Path path) {
 		// Set the current cell to the last cell in the path
@@ -194,15 +189,11 @@ public class BoardSolver {
 	 * @param word
 	 */
 	public void removeWord(String word) {
-		List<Path> remWords = new ArrayList<>();
-		for (Path p : words) {
-			if (p.toString().equals(word)) {
-				remWords.add(p);
+		Iterator<Path> wordIterator = words.iterator();
+		while (wordIterator.hasNext()) {
+			if(wordIterator.next().toString().equals(word)){
+				wordIterator.remove();
 			}
-		}
-		
-		for (Path p : remWords) {
-			words.remove(p);
 		}
 	}
 
@@ -228,7 +219,7 @@ public class BoardSolver {
 	public static void main(String[] args) {	
 		boolean printField = true;
 
-		BoardSolver solver = new BoardSolver(4, "Data/TWL06.txt");
+		BoardSolver solver = new BoardSolver(5, "Boggle Solver/Data/TWL06.txt");
 		
 		if (printField) {
 			for (int y = 0; y < solver.size; y++) {

@@ -78,7 +78,7 @@ public class Node {
 	}
 
 	/**
-	 * @param whether or not this is the end of a word
+	 * @param endWord whether or not this is the end of a word
 	 */
 	public void setEndWord(boolean endWord) {
 		this.endWord = endWord;
